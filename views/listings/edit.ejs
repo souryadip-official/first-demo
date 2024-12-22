@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust</title>
+    <link rel="icon" href="https://img.icons8.com/?size=512&id=r9BTjhlYHBXm&format=png">
+
+
+    <!-- Header and Footer styling -->
+    <link rel="stylesheet" href="/css/headerANDfooter.css">
+    <link rel="stylesheet" href="/css/styleNew.css">
+    <!-- Bootstrap inclusion -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Custom Font-Awesome CDN include-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <%- include("../includes/navbar.ejs") %>
+    <div class="container">
+        <%- include("../includes/flash.ejs") %>
+        <h3>Edit your listing</h3>
+        <div class="listId">
+            <p>ID: <b><%= list._id %></b>  </p>
+        </div>
+        <form action="http://localhost:3000/listings/<%= list._id %>?_method=PUT" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+            <div class="element">
+                <label for="title" class="form-label">Title</label>
+                <input class="form-control" type="text" value="<%=list.title%>" id="title" name="title" required>
+                <div class="valid-feedback">
+                    Title looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a title.
+                  </div>
+            </div>
+            <div class="element">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" type="text" name="description" required><%= list.description%></textarea>
+                <div class="valid-feedback">
+                    Description looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a description.
+                  </div>
+            </div>
+
+            <div class="showOriginalImage">
+                <label for="">Previous Listing Image Preview</label><br>
+                <img src="<%= originalUrl %>" alt="listingimage" class="origImg">
+            </div>
+
+            <div class="element">
+                <label for="img" class="form-label">Upload New Listing Image <span class="redifyOptional">(optional)</span> </label>
+                <input class="form-control" id="img" type="file" name="image" value="<%=list.image%>">
+            </div>
+            
+            <div class="element lastThree">
+                <div class="setWidth price">
+                    <label for="num" class="form-label">Price</label>
+                    <input id="num" class="form-control" type="number" value="<%=list.price%>" name="price" required>
+                    <div class="valid-feedback">
+                        Valid price.
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid price.
+                    </div>
+                </div>
+                
+                <div class=" element setWidth location">
+                    <label for="loc" class="form-label">Location</label>
+                    <input class="form-control" id="loc" type="text" value="<%=list.location %>" name="location" required>
+                    <div class="valid-feedback">
+                        Location looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a location.
+                    </div>
+                </div>
+                
+                <div class="element setWidth country">
+                    <label for="country" class="form-label">Country</label>
+                    <input class="form-control" id="country" type="text" value="<%=list.country%>" name="country" required>
+                    <div class="valid-feedback">
+                        Country looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a country.
+                      </div>
+                </div>
+            </div>
+            <div class="button">
+                <button type="submit" class="btn btn-outline-dark">Finish</button>
+            </div>
+            <br>
+        </form>
+    </div>
+    <%- include("../includes/footer.ejs") %>
+    <!-- Bootstrap JS include-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>

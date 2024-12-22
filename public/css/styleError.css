@@ -1,0 +1,18 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center; 
+    flex: 1; 
+    padding: 20px;
+}
+
+.alert {
+    text-align: center;
+}

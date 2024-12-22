@@ -1,0 +1,25 @@
+<!-- SUCCESS FLASH -->
+
+<% if(success && success.length) { %> 
+    <!-- If we check only the existence of success, then it will always be present
+        in the res.locals object, but for showing the flash message it should have
+        some message which we can check by checking the length of the success which
+        should be greater than zero -->
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        <%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<!-- ERROR FLASH -->
+
+<% if(error && error.length) { %> 
+    <!-- If we check only the existence of error, then it will always be present
+        in the res.locals object, but for showing the flash message it should have
+        some message which we can check by checking the length of the error which
+        should be greater than zero -->
+    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>

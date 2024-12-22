@@ -1,0 +1,53 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    flex: 1; 
+    padding: 20px;
+}
+
+.container h4 {
+    color: rgb(252, 133, 197);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+}
+
+.signUpForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    border: 2px solid rgb(208, 203, 203) !important;
+    border-radius: 1.25rem !important;
+    width: 25rem !important;
+    height: 25rem !important;
+    padding: 1.3rem;
+}
+
+
+.alert-dismissible {
+    margin: 10px auto;
+}
+
+.element {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    width: 20rem !important;
+}
+
+
+
+.button {
+    text-align: center;
+    margin-top: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.btn:hover {
+    background-color: g !important;
+}

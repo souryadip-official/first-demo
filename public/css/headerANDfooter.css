@@ -1,0 +1,129 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex:1;
+}
+
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass {
+    color: hotpink;
+    font-size: 2rem;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.fa-compass:hover {
+    font-size: 2.2rem;
+    color: rgb(254, 67, 120);
+}
+
+.nav-link {
+    color: #222222;
+    font-weight: 400 !important;
+}
+
+.explore, .signup, .login, .logout, .newList {
+    transition: color 0.3s ease-in-out 0s;
+}
+
+.explore:hover {
+    color: rgb(150, 30, 230) !important;
+}
+
+.signup:hover {
+    color: rgb(254, 67, 120) !important;
+}
+
+.login:hover {
+    color: #4890fd !important;
+}
+
+.newList:hover {
+    color: rgb(39, 216, 39) !important;
+}
+
+.logout:hover {
+    color: red !important;
+}
+
+.btn-search {
+    background-color: #fe424d !important;
+    color: white !important;
+    border-radius: 25px !important;
+    padding: 0 1rem 0 1rem !important;
+}
+
+.btn-search:hover {
+    opacity: 0.8;
+}
+
+.btn-search i {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.searchInput {
+    border-radius: 25px !important;
+    padding: 0.5rem 3rem 0.5rem 3rem !important;
+}
+
+.f-info {
+    padding-top: 2.5rem;
+    text-align: center;
+    background-color: #ebebeb;
+    height: 10rem;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+    transition: color 0.3s ease-in-out 0.2s;
+}
+
+.f-info-links a:hover {
+    color: hotpink;
+}
+
+.f-info-socials {
+    font-size: 1.5rem;
+}
+
+.f-info-socials i {
+    transition: color 0.3s ease-in-out 0s;
+}
+
+.f-info-socials i:hover {
+    cursor: pointer;
+}
+
+.brand {
+    padding-top: 0.75rem;
+}
+
+.f-info-links {
+    padding-top: 0.75rem;
+}
+
+/* Custom colours for social handles */
+.fa-square-facebook:hover {
+    color: rgb(59, 59, 250);
+}
+
+.fa-square-instagram:hover {
+    color: #d62976;
+}
+
+.fa-square-twitter:hover {
+    color: #1DA1F2;
+}
+
+.fa-linkedin:hover {
+    color: #0077B5;
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust</title>
+    <link rel="icon" href="https://img.icons8.com/?size=512&id=r9BTjhlYHBXm&format=png">
+
+    <!-- Custom CSS Stylings -->
+    <link rel="stylesheet" href="/css/headerANDfooter.css">
+    <link rel="stylesheet" href="/css/styleIndex.css">
+
+
+    <!-- Custom Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+
+    <!-- Bootstrap inclusion -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Custom Font-Awesome CDN include-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+</head>
+<body>
+    <!-- Navbar inclusion -->
+    <%- include("../includes/navbar.ejs") %>
+
+    <div class="container">
+        <%- include("../includes/flash.ejs") %>
+        <!-- This is found in the res.locals object -->
+        <div class="headDiv filters" id="filters">
+            <!-- <h3 class="mainhead">All listings!</h3> -->
+            <!-- <form action="http://localhost:3000/listings/new" method="get">
+                <button><i class="fa fa-plus-square" style="font-size:24px"></i></button>
+            </form> -->
+
+            <div class="filter">
+                <div><i class="iconNav fa-solid fa-fire"></i></div>
+                <p>Trending</p>
+            </div>
+            <div class="filter">
+                <div><i class="iconNav fa-solid fa-bed"></i></div>
+                <p>Rooms</p>
+            </div>
+            <div class="filter">
+                <div><i class="iconNav fa-solid fa-mountain-city"></i></div>
+                <p>Iconic Cities</p>
+            </div>
+            <div class="filter">
+                <div><i class="iconNav fa-solid fa-mountain"></i></div>
+                <p>Mountains</p>
+            </div>
+            <div class="filter">
+                <div><i class="iconNav fa-brands fa-fort-awesome"></i></div>
+                <p>Castles</p>
+            </div>
+            <div class="filter">
+                <div><i class="iconNav fa-solid fa-person-swimming"></i></div>
+                <p>Amazing Pools</p>
+            </div>
+            <div class="filter">
+                <div><i class="iconNav fa-solid fa-campground"></i></div>
+                <p>Camping</p>
+            </div>
+            <div class="filter">
+                <div><i class="iconNav fa-solid fa-cow"></i></div>
+                <p>Farms</p>
+            </div>
+            <div class="filter">
+                <div><i class="iconNav fa-solid fa-snowflake"></i></div>
+                <p>Arctic</p>
+            </div>
+            <div class="filter">
+                <div><i class="iconNav fa-solid fa-umbrella-beach"></i></div>
+                <p>Beach</p>
+            </div>
+            <div class="filter">
+                <div><i class="iconNav fa-solid fa-water"></i></div>
+                <p>Lakes</p>
+            </div>
+
+
+            <div class="tax-toggle">
+                <div class="form-check-reverse form-switch">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                </div>
+            </div>
+        </div>
+    
+        <div class="listContainer">
+            <% for(let list of allListings) { %>
+                <a href="/listings/<%= list._id %>" class="cardLink">
+                    <div class="card">
+                        <img src="<%= list.image.url %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text"> 
+                                <b><%= list.title %></b> <br>
+                                <!-- Experimented to calculate the tax price which worked -->
+                                <% const finalPrice = Math.ceil(list.price + (0.18 * list.price)) %>
+                                Price: &#8377; <%= list.price.toLocaleString("en-IN") %>&nbsp;/ night 
+                                <b class="tax-info"> &nbsp; (+18% GST)</b><br>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+        </div>    
+    </div> 
+    <!-- Footer inclusion -->
+    <%- include("../includes/footer.ejs") %>
+    <!-- Bootstrap JS include-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+        taxSwitch.addEventListener("click", () => {
+            let taxInfo = document.getElementsByClassName("tax-info");
+            for(let info of taxInfo) {
+                if(info.style.display != "inline") {
+                    info.style.display = "inline";
+                } else {
+                    info.style.display = "none";
+                }    
+            }
+        });
+    </script>
+</body>
+</html>
