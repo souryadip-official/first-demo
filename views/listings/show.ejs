@@ -54,11 +54,11 @@
         <br>
         <% if( currUser && list.owner._id.equals(currUser._id)) { %>
             <div class="btns">
-                <form action="http://localhost:3000/listings/<%= list._id %>/edit">
+                <form action="/listings/<%= list._id %>/edit">
                     <button class="btn btn-success" type="submit">Edit</button>
                 </form>
         
-                <form method="post" action="http://localhost:3000/listings/<%= list._id %>?_method=DELETE">
+                <form method="post" action="/listings/<%= list._id %>?_method=DELETE">
                     <button class="btn btn-danger" type="submit">Delete</i></button>
                 </form>
             </div>
@@ -80,7 +80,7 @@
                                     <%= review.comment %>
                                 </p>
                                 <% if(currUser && review.author._id.equals(currUser._id)) { %>
-                                    <form action="http://localhost:3000/listings/<%= list._id %>/reviews/<%= review._id%>?_method=DELETE" method="post">
+                                    <form action="/listings/<%= list._id %>/reviews/<%= review._id%>?_method=DELETE" method="post">
                                         <button type="submit" class="btn btn-sm btn-outline-danger">Delete review</button>
                                     </form>
                                 <% } %>
@@ -104,7 +104,7 @@
                 <div class="feedbackHeadingContainer">
                     <p class="feedbackHeading">Leave a review</p>
                 </div>
-                <form action="http://localhost:3000/listings/<%=list._id%>/reviews" method="post" novalidate class="needs-validation">
+                <form action="/listings/<%=list._id%>/reviews" method="post" novalidate class="needs-validation">
                     <div>
                         <label class="form-label" for="rating">Rating⭐</label>
                         <fieldset class="starability-growRotate ratingStyle">

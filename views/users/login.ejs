@@ -28,7 +28,7 @@
         <%- include("../includes/flash.ejs") %>
         <h4>Login to Wanderlust</h4>
         <div class="signUpForm">
-            <form action="http://localhost:3000/login" method="post" novalidate class="needs-validation">
+            <form action="/login" method="post" novalidate class="needs-validation">
                 <div class="element username">
                     <label for="username" class="form-label">Username</label>
                     <input class="form-control" type="text" placeholder="Username" id="username" name="username" required>
@@ -57,7 +57,7 @@
         </div>
         <br>
         <div class="ifNew">
-            <form action="http://localhost:3000/signup" method="get">
+            <form action="/signup" method="get">
                 <p>New to Wanderlust?</p>
                 <button type="submit" class="btn btn-outline-primary signUpBtn">Signup</button>
             </form>

@@ -27,7 +27,7 @@
         <div class="listId">
             <p>ID: <b><%= list._id %></b>  </p>
         </div>
-        <form action="http://localhost:3000/listings/<%= list._id %>?_method=PUT" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+        <form action="/listings/<%= list._id %>?_method=PUT" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
             <div class="element">
                 <label for="title" class="form-label">Title</label>
                 <input class="form-control" type="text" value="<%=list.title%>" id="title" name="title" required>

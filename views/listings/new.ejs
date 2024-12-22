@@ -26,7 +26,7 @@
     <div class="container">
         <%- include("../includes/flash.ejs") %>
         <h3>Create a new listing</h3>
-        <form action="http://localhost:3000/listings" enctype="multipart/form-data" method="post" novalidate class="needs-validation">
+        <form action="/listings" enctype="multipart/form-data" method="post" novalidate class="needs-validation">
             <div class="element">
                 <label for="title" class="form-label">Title</label>
                 <input class="form-control" type="text" placeholder="Title" id="title" name="title" required>

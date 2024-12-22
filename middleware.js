@@ -18,7 +18,7 @@ module.exports.isLoggedIn = (req, res, next) => {
         has no access to this res.locals object */
         req.session.redirectUrl = req.originalUrl;
         req.flash("error", "You must login first to proceed further.");
-        return res.redirect("http://localhost:3000/login");
+        return res.redirect("/login");
     }
     next();
 };
